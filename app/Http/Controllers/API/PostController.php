@@ -11,11 +11,18 @@ use Illuminate\Support\Facades\Log;
 
 class PostController extends Controller
 {
+    /**
+     * To Show post
+     */
     public function index(Request $request)
     {
         return response()->json(Post::paginate(10));
     }
 
+
+    /**
+     * To Srore post
+     */
     public function store(Request $request)
     {
         $request->validate([
