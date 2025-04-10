@@ -21,7 +21,12 @@ class SendPostNotification implements ShouldQueue
 
     public function handle(PostCreated $event): void
     {
-        // Send email to admin
+
+        Log::debug('New post created', [
+            'post_id' => $event->post->id,
+            'title' => $event->post->title,
+            'created_at' => $event->post->created_at,
+        ]);
         Mail::to('admin@example.com')->send(
             new PostCreatedNotification($event->post)
         );

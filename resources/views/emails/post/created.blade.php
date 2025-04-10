@@ -4,12 +4,9 @@ use Illuminate\Support\Str;
 
 <x-mail::message>
 
-    A new post has just been created on your site.
+    {{ $title }}
 
-    **Title:** {{ $title }}
-
-    **Content Preview:**
-    {{ Str::limit($content, 200) }}
+    {{ $content }}
 
     <x-mail::button :url="url('/admin/posts')">
         View All Posts

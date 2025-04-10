@@ -21,7 +21,7 @@ class PostController extends Controller
 
 
     /**
-     * To Srore post
+     * To Store post
      */
     public function store(Request $request)
     {
@@ -32,8 +32,7 @@ class PostController extends Controller
 
         $post = Post::create($request->only(['title', 'content']));
 
-        // Trigger event
-        event(new PostCreated($post));
+        PostCreated::dispatch($post);
 
         return response()->json($post, 201);
     }

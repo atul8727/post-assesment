@@ -28,6 +28,9 @@ This is a simple Laravel RESTful API for managing blog posts. It includes user a
 5. Serve the app  
    `php artisan serve`
 
+6. Run Queue
+   `php artisan queue:work`
+
 ## API Endpoints
 
 ### Auth
